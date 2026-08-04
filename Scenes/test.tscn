@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6s85wbh7vruh"]
+
+[ext_resource type="Script" path="res://Scripts/SpellMaster.gd" id="1_6vgo3"]
+[ext_resource type="Texture2D" uid="uid://bn8pq8tpc0rhn" path="res://Assets/UI/The Circle.png" id="1_tr7bw"]
+[ext_resource type="Texture2D" uid="uid://ccvhr1vncv7r7" path="res://Assets/Characters/C - Evolent.png" id="4_qn503"]
+[ext_resource type="PackedScene" uid="uid://browu2jc6kfvb" path="res://Prefabs/duelist_node.tscn" id="4_vg6jm"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(575, 325)
+
+[node name="Spellmaster" type="Node2D" parent="."]
+script = ExtResource("1_6vgo3")
+
+[node name="DuelistNode" parent="Spellmaster" instance=ExtResource("4_vg6jm")]
+
+[node name="TheCircle" type="Sprite2D" parent="Spellmaster"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_tr7bw")
+
+[node name="C-Evolent" type="Sprite2D" parent="Spellmaster"]
+position = Vector2(0, -265)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_qn503")
+
+[editable path="Spellmaster/DuelistNode"]

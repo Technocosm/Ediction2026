@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://browu2jc6kfvb"]
+
+[ext_resource type="Script" path="res://Scenes/DuelistNode.gd" id="1_jsj8w"]
+[ext_resource type="Texture2D" uid="uid://c07cknguxrrb1" path="res://Assets/Characters/charspr.png" id="2_lwnc7"]
+[ext_resource type="Texture2D" uid="uid://djdu8qhwrvwxm" path="res://Assets/Characters/Shield/Shield Outline.png" id="3_jl1v2"]
+[ext_resource type="Texture2D" uid="uid://c6wpxixnh2vni" path="res://Assets/Characters/Shield/Shield Inside.png" id="4_gkcno"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dy6yn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k82gw"]
+
+[node name="DuelistNode" type="Node2D"]
+position = Vector2(0, 255)
+script = ExtResource("1_jsj8w")
+
+[node name="DuelistSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lwnc7")
+hframes = 4
+
+[node name="Shield" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_jl1v2")
+
+[node name="ShieldInside" type="Sprite2D" parent="Shield"]
+modulate = Color(1, 1, 1, 0.615686)
+texture = ExtResource("4_gkcno")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_dy6yn")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="TapBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapBox"]
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_k82gw")
+
+[connection signal="mouse_entered" from="TapBox" to="." method="_on_tap_box_mouse_entered"]
+[connection signal="mouse_exited" from="TapBox" to="." method="_on_tap_box_mouse_exited"]
