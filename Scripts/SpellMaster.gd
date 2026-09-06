@@ -22,18 +22,15 @@ func _ready():
 	for i in MAX_EDICTS:
 		instances[i] = EdictPrefab.instantiate();
 		add_child(instances[i]);
-		
-		# For Debug - Replace Later
-		# instances[i]._setup(i);
-		
-		if(i > 8 && i < 16):
-			instances[i]._setup(i);
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	t += delta
+	
+	if(Input.is_action_just_pressed("Cast1")):
+		SetupFreeEdict(10);
 	
 	# Update Each Edict in the match each frame
 	for i in MAX_EDICTS:
@@ -43,3 +40,13 @@ func _process(delta):
 			if(instances[i].active):	# Don't Check Collision of inactive Edicts
 					if(DuelistHurtbox.overlaps_area(instances[i].getHitbox())):	# If an Edict hits the Duelist
 						Duelist.shieldFlash();
+	
+
+# Look for an inactive Edict that's free to set up, then give it the ID for the Edict you want it to be.
+func SetupFreeEdict(id):
+	var num = 0;
+	while num < MAX_EDICTS:
+		if(!instances[num].active):
+			instances[num]._setup(id);
+			num = MAX_EDICTS;
+		num += 1;

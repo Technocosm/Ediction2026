@@ -16,11 +16,11 @@ scale = Vector2(0.125, 0.125)
 z_index = 9
 scale = Vector2(4, 4)
 texture = ExtResource("2_lij5g")
-hframes = 9
+hframes = 10
 vframes = 6
-frame = 42
+frame = 10
 region_enabled = true
-region_rect = Rect2(0, 0, 2376, 1584)
+region_rect = Rect2(0, 0, 2640, 1584)
 region_filter_clip_enabled = true
 
 [node name="EdictHitbox" type="Area2D" parent="EdictPos"]
