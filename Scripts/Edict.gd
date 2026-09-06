@@ -23,9 +23,9 @@ const EDICT_SPRITESHEET_FRAMES = EDICT_SPRITESHEET_HFRAMES * EDICT_SPRITESHEET_V
 
 # SIZE & SPEED STATS & HOW CHARACTER STATS CAN AFFECT THEM
 const SPEED_MULT = 22.5;	# 1 speed = 22.5 degrees traversed per second - 8s to 180
-const SIZE_RANGE = 0.125;
-const SIZE_MIN = 0.025;
-const SIZE_MAX = 0.15;
+const SIZE_MIN = 0.01;
+const SIZE_MAX = 0.05;
+const SIZE_RANGE = SIZE_MAX - SIZE_MIN;
 const CHR_STR_BOOST_MIN = 0.8;	# Max reduction in Size from low Strength Stat is 20%
 const CHR_STR_BOOST_MAX = 1.2;	# Max Size increase from high Strength is 20%
 const CHR_STR_RANGE = CHR_STR_BOOST_MAX - CHR_STR_BOOST_MIN;	#Calculate the Range between min and max.
@@ -72,8 +72,8 @@ func _setup(id, resource, precise, charStr = 0.5, charSpd = 0.5, spellStr = 1, s
 	baseSpeed = speed;
 	
 	# Increase or Decrease both stats by the proper amounts based on our Character Stats.
-	var st = (CHR_STR_BOOST_MIN + (CHR_STR_RANGE * charStr)) * spellStr;
-	var sp = (CHR_SPD_BOOST_MIN + (CHR_SPD_RANGE * charSpd)) * spellSpd;
+	var st = (CHR_STR_BOOST_MIN + (CHR_STR_RANGE * (charStr / 100.0))) * spellStr;
+	var sp = (CHR_SPD_BOOST_MIN + (CHR_SPD_RANGE * (charSpd / 100.0))) * spellSpd;
 	size *= st;
 	speed *= sp;
 	
