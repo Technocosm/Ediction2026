@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EdictStats" load_steps=2 format=3 uid="uid://321atcx7gir4"]
+[gd_resource type="Resource" script_class="EdictStats" load_steps=2 format=3 uid="uid://dim4gg5ebmyvb"]
 
 [ext_resource type="Script" path="res://Scripts/EdictStats.gd" id="1_eon80"]
 
@@ -15,7 +15,7 @@ cost_staling_exponent = 1.6
 cost_reduction_condition = "NA"
 cost_increase_condition = "NA"
 reset_cost_on_cast = false
-size = 1.5
+size = 1.75
 speed = 0.857
 damage = 50.0
 shield_damage = 125.0

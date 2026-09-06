@@ -42,8 +42,37 @@ func _process(delta):
 	
 	t += delta
 	
+	# Debug Cast Inputs
 	if(Input.is_action_just_pressed("Cast1")):
 		SetupFreeEdict(10, false);
+	if(Input.is_action_just_pressed("Cast2")):
+		SetupFreeEdict(11, false);
+	if(Input.is_action_just_pressed("Cast3")):
+		SetupFreeEdict(12, false);
+	if(Input.is_action_just_pressed("Cast4")):
+		SetupFreeEdict(13, false);
+	if(Input.is_action_just_pressed("Cast5")):
+		SetupFreeEdict(14, false);
+	if(Input.is_action_just_pressed("Cast6")):
+		SetupFreeEdict(15, false);
+	if(Input.is_action_just_pressed("Cast7")):
+		SetupFreeEdict(16, false);
+	if(Input.is_action_just_pressed("Cast8")):
+		SetupFreeEdict(20, false);
+	if(Input.is_action_just_pressed("Cast9")):
+		SetupFreeEdict(21, false);
+	if(Input.is_action_just_pressed("Cast10")):
+		SetupFreeEdict(22, false);
+	if(Input.is_action_just_pressed("Cast11")):
+		SetupFreeEdict(23, false);
+	if(Input.is_action_just_pressed("Cast12")):
+		SetupFreeEdict(24, false);
+	if(Input.is_action_just_pressed("Cast13")):
+		SetupFreeEdict(25, false);
+	if(Input.is_action_just_pressed("Cast14")):
+		SetupFreeEdict(26, false);
+	if(Input.is_action_just_pressed("Cast15")):
+		SetupFreeEdict(27, false);
 	
 	# Update Each Edict in the match each frame
 	for i in MAX_EDICTS:

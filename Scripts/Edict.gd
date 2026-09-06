@@ -23,9 +23,7 @@ const EDICT_SPRITESHEET_FRAMES = EDICT_SPRITESHEET_HFRAMES * EDICT_SPRITESHEET_V
 
 # SIZE & SPEED STATS & HOW CHARACTER STATS CAN AFFECT THEM
 const SPEED_MULT = 22.5;	# 1 speed = 22.5 degrees traversed per second - 8s to 180
-const SIZE_MIN = 0.01;
-const SIZE_MAX = 0.05;
-const SIZE_RANGE = SIZE_MAX - SIZE_MIN;
+const BASE_SIZE = 0.0625;	# Starting value for size before multipliers are applied
 const CHR_STR_BOOST_MIN = 0.8;	# Max reduction in Size from low Strength Stat is 20%
 const CHR_STR_BOOST_MAX = 1.2;	# Max Size increase from high Strength is 20%
 const CHR_STR_RANGE = CHR_STR_BOOST_MAX - CHR_STR_BOOST_MIN;	#Calculate the Range between min and max.
@@ -84,7 +82,7 @@ func _setup(id, resource, precise, charStr = 0.5, charSpd = 0.5, spellStr = 1, s
 	pass
 	
 func _setSize():		# Sets the Scale of the Edict to match the size indiciated by the variables in this Script
-	var realSize = SIZE_MIN + (size * SIZE_RANGE);
+	var realSize = BASE_SIZE * size;
 	EdictPos.scale = Vector2(realSize, realSize);
 	pass
 	
