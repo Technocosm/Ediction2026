@@ -1,22 +1,24 @@
-[gd_resource type="Resource" script_class="EdictStats" load_steps=2 format=3 uid="uid://cf7jad8d1miy"]
+[gd_resource type="Resource" script_class="EdictStats" load_steps=2 format=3 uid="uid://321atcx7gir4"]
 
-[ext_resource type="Script" path="res://Scripts/EdictStats.gd" id="1_ur8kc"]
+[ext_resource type="Script" path="res://Scripts/EdictStats.gd" id="1_eon80"]
 
 [resource]
-script = ExtResource("1_ur8kc")
-id = 9
+script = ExtResource("1_eon80")
+id = 21
 type = 0
 appears_on_track = true
-mana_cost = 20.0
+mana_cost = 60.0
 charge_cost = 0.0
 special_cost = 0.0
+cost_staling_percent = 0.04
+cost_staling_exponent = 1.6
 cost_reduction_condition = "NA"
 cost_increase_condition = "NA"
 reset_cost_on_cast = false
-size = 0.5
-speed = 1.0
-damage = 0.0
-shield_damage = 0.0
+size = 1.5
+speed = 0.857
+damage = 50.0
+shield_damage = 125.0
 pierce = 0.0
 effect_unblocked = "NA"
 effect_blocked = "NA"
@@ -34,8 +36,8 @@ precise_damage_boost = 1.5
 precise_shield_damage_boost = 1.5
 precise_pierce_boost = 0.0
 precise_bonus_effect = "NA"
-precise_effect_strength_boost = 1.5
-precise_effect_duration_boost = 1.5
+precise_effect_strength_boost = 1.0
+precise_effect_duration_boost = 1.0
 unchanging = false
 unmoving = false
 hazard_immunity = false

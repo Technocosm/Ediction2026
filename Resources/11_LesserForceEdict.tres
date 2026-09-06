@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EdictStats" load_steps=2 format=3 uid="uid://cf7jad8d1miy"]
+
+[ext_resource type="Script" path="res://Scripts/EdictStats.gd" id="1_rjmap"]
+
+[resource]
+script = ExtResource("1_rjmap")
+id = 11
+type = 0
+appears_on_track = true
+mana_cost = 20.0
+charge_cost = 0.0
+special_cost = 0.0
+cost_staling_percent = 0.007
+cost_staling_exponent = 1.4
+cost_reduction_condition = "NA"
+cost_increase_condition = "NA"
+reset_cost_on_cast = false
+size = 0.667
+speed = 1.5
+damage = 5.0
+shield_damage = 25.0
+pierce = 0.0
+effect_unblocked = "NA"
+effect_blocked = "NA"
+bonus_effect = false
+effect_unblocked_strength = 1.0
+effect_blocked_strength = 1.0
+effect_unblocked_duration = 0.0
+effect_blocked_duration = 0.0
+precision_minimum = 0.7
+precise_threshold = 0.925
+precise_mana_refund = 0.0
+precise_size_boost = 1.25
+precise_speed_boost = 1.0
+precise_damage_boost = 1.5
+precise_shield_damage_boost = 1.5
+precise_pierce_boost = 0.0
+precise_bonus_effect = "NA"
+precise_effect_strength_boost = 1.0
+precise_effect_duration_boost = 1.0
+unchanging = false
+unmoving = false
+hazard_immunity = false

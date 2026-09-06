@@ -4,7 +4,7 @@ extends Resource
 enum EdictType
 {
 	Green,	# Deals DMG if Unblocked, Shield DMG if blocked, can't Pierce at base. No Speical Effects*
-	Red,	# Doesn't Deal Shield DMG or have special effects, but has Pierce at base.
+	Red,	# Doesn't Deal Shield DMG or have special effects, but deals DMG while having Pierce at base.
 	Blue,	# Special Effects depending on if blocked or not - only Deals Shield DMG unless effects state otherwise
 	Purple,	# Special Effects if not blocked, but doesn't deal any form of DMG unless the effect states otherwise
 	Yellow,	# Instantly puts a special effect in play on cast without spawning anything on the Track
@@ -22,6 +22,8 @@ enum EdictType
 @export var special_cost := 0.;			# Some Characters have bonus Resources that can be Spent to empower Edicts.
 
 # Cost Changers:
+@export var cost_staling_percent := 0.;			# Increase cost by this % for each stack of staling
+@export var cost_staling_exponent := 1.;		# 1 = don't change, the higher the value, the faster staling.
 @export var cost_reduction_condition := "NA";	# Some Edicts can change cost depending on conditions
 @export var cost_increase_condition := "NA";
 @export var reset_cost_on_cast := false;		# Most Edicts whose costs change want their Costs to reset back to

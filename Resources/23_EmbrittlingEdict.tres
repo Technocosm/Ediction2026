@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EdictStats" load_steps=2 format=3 uid="uid://k2sp3u527u4h"]
+
+[ext_resource type="Script" path="res://Scripts/EdictStats.gd" id="1_sxk4m"]
+
+[resource]
+script = ExtResource("1_sxk4m")
+id = 23
+type = 3
+appears_on_track = true
+mana_cost = 30.0
+charge_cost = 0.0
+special_cost = 0.0
+cost_staling_percent = 0.05
+cost_staling_exponent = 1.125
+cost_reduction_condition = "NA"
+cost_increase_condition = "NA"
+reset_cost_on_cast = false
+size = 0.8
+speed = 1.0
+damage = 0.0
+shield_damage = 0.0
+pierce = 0.0
+effect_unblocked = "Embrittle All Enemy Edicts"
+effect_blocked = "NA"
+bonus_effect = false
+effect_unblocked_strength = 1.0
+effect_blocked_strength = 1.0
+effect_unblocked_duration = 2.0
+effect_blocked_duration = 0.0
+precision_minimum = 0.7
+precise_threshold = 0.925
+precise_mana_refund = 0.0
+precise_size_boost = 1.33
+precise_speed_boost = 1.0
+precise_damage_boost = 1.0
+precise_shield_damage_boost = 1.0
+precise_pierce_boost = 0.0
+precise_bonus_effect = "NA"
+precise_effect_strength_boost = 1.0
+precise_effect_duration_boost = 5.0
+unchanging = false
+unmoving = false
+hazard_immunity = false

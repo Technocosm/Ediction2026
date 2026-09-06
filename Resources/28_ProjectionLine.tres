@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EdictStats" load_steps=2 format=3 uid="uid://c4ftcknbas3j6"]
+
+[ext_resource type="Script" path="res://Scripts/EdictStats.gd" id="1_mq0mw"]
+
+[resource]
+script = ExtResource("1_mq0mw")
+id = 28
+type = 5
+appears_on_track = false
+mana_cost = 25.0
+charge_cost = 900.0
+special_cost = 0.0
+cost_staling_percent = 0.0
+cost_staling_exponent = 1.0
+cost_reduction_condition = "NA"
+cost_increase_condition = "NA"
+reset_cost_on_cast = false
+size = 0.0
+speed = 0.0
+damage = 0.0
+shield_damage = 0.0
+pierce = 0.0
+effect_unblocked = "All of your Edicts are Cast Precisely until you miss a Beat"
+effect_blocked = "All of your Precisely Cast Edicts grow over time until you miss a Beat"
+bonus_effect = false
+effect_unblocked_strength = 1.0
+effect_blocked_strength = 0.08
+effect_unblocked_duration = 0.0
+effect_blocked_duration = 0.0
+precision_minimum = 0.7
+precise_threshold = 0.925
+precise_mana_refund = 25.0
+precise_size_boost = 1.0
+precise_speed_boost = 1.0
+precise_damage_boost = 1.0
+precise_shield_damage_boost = 1.5
+precise_pierce_boost = 0.0
+precise_bonus_effect = "1 Miss Allowed"
+precise_effect_strength_boost = 1.0
+precise_effect_duration_boost = 1.0
+unchanging = false
+unmoving = false
+hazard_immunity = false
