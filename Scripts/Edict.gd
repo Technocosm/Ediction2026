@@ -4,6 +4,8 @@ extends Node2D
 var EdictPos;
 var EdictSprite;
 var EdictHitbox;
+# RESOURCE OF EDICT WE'VE BEEN TOLD TO BE
+var EdictDataResource;
 
 # GAMEPLAY VARIABLES
 var active = false;
@@ -48,8 +50,9 @@ func _ready():
 	EdictPos.scale = Vector2(0, 0);	# We don't want an Edict that isn't prepared to be visible or have collision.
 	active = false;					# For the same reason, mark it as inactive until it has been set up.
 
-func _setup(id, charStr = 0.5, charSpd = 0.5, spellStr = 1, spellSpd = 1):
+func _setup(id, resource, precise, charStr = 0.5, charSpd = 0.5, spellStr = 1, spellSpd = 1):
 	# id - Spell ID
+	# resource - resource containing Edict Data
 	# charStr - Character's Strength Stat (0-1)
 	# charSpd - Character's Speed Stat (0-1)
 	# spellStr - Any Strength Mutlipliers to be applied to the Spell from Buffs
@@ -58,20 +61,11 @@ func _setup(id, charStr = 0.5, charSpd = 0.5, spellStr = 1, spellSpd = 1):
 	# Set Sprite from Spirtesheet using ID
 	EdictSprite.frame = id % EDICT_SPRITESHEET_FRAMES;
 	
-	# Set default Size & Speed of Edict using the stats corresponding to that Edict
-	match id:
-		1:
-			size = 1.0 / 3.0;
-			speed = 7.0 / 6.0;
-		2:
-			size = 0.5;
-			speed = 1.0;
-		3:
-			size = 1;
-			speed = 2.0 / 3.0;
-		_:	# For now if we default, just set random values within sensible range - REPLACE LATER
-			size = randf_range(0.0, 0.25);
-			speed = randf_range(0.1, 1.5);
+	# Store Edict Resource for later reference:
+	EdictDataResource = resource;
+	
+	size = resource.size;
+	speed = resource.speed;
 	
 	# Record this Base Size and Speed before any modifiers, because we're about to change them.
 	baseSize = size;

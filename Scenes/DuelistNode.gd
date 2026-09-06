@@ -175,3 +175,12 @@ func _on_tap_box_mouse_entered():
 
 func _on_tap_box_mouse_exited():
 	mouseOnShield = false;
+
+func getStrength():
+	return strength[charId];
+func getSpeed():
+	return speed[charId];
+func getDefense():
+	return defense[charId];
+func getTrickiness():
+	return trickiness[charId];
