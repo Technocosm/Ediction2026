@@ -128,6 +128,7 @@ func _process(delta):
 			shieldCharge = 0.;
 		if(shieldCharge > 1.):
 			shieldCharge = 1.;
+			print_debug("Shield Size: ", getShieldSize());
 		
 		# Set Shield Sprite Scaling to Match Charge
 		Shield.scale = Vector2(shieldCharge * SHIELD_MAX_SCALE, shieldCharge * SHIELD_MAX_SCALE);
@@ -168,6 +169,9 @@ func setup(id = 0):
 func shieldFlash():
 	timeOfLastShieldFlash = t;
 	timeElapsedSinceLastFlash = 0.;
+	
+func getShieldSize():
+	return Shield.scale.x;
 
 func _on_tap_box_mouse_entered():
 	mouseOnShield = true;
@@ -175,6 +179,7 @@ func _on_tap_box_mouse_entered():
 
 func _on_tap_box_mouse_exited():
 	mouseOnShield = false;
+	
 
 func getStrength():
 	return strength[charId];

@@ -16,6 +16,8 @@ var t = 0.; 			# Timer
 
 const MAX_EDICTS = 64;	# The Maximum amount of Edicts allowed onscreen at once
 
+const EDICT_TO_SHIELD_SIZE_CONVERSION_CONSTANT = 2;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Load Edict Data
@@ -90,5 +92,6 @@ func SetupFreeEdict(id, precise):
 	while num < MAX_EDICTS:
 		if(!instances[num].active):
 			instances[num]._setup(id, EdictStats[id], precise, Duelist.getStrength(), Duelist.getSpeed());
+			print_debug("Edict Size: ", instances[num].getRealSize().x);
 			num = MAX_EDICTS;
 		num += 1;

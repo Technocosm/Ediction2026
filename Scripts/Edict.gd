@@ -171,3 +171,6 @@ func update(delta):
 
 func getHitbox():
 	return EdictHitbox;
+
+func getRealSize():
+	return EdictPos.scale;
