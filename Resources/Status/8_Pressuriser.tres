@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://cqgcmkniccuwm"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_6hstr"]
+
+[resource]
+script = ExtResource("1_6hstr")
+id = 8
+name = "Pressurised"
+t = 0.0
+durationType = 0
+defaultDuration = 1.0
+duration = 1.0
+conditionNum = 1.0
+effect1 = 11
+effect2 = 0
+effect3 = 0
+effectType = 0
+effect1Strength = 5.0
+effect2Strength = 1.0
+effect3Strength = 1.0
+effectDescriptionShort = "Speed Boost Greens & Blues for a moment"
+effectDecriptionLong = "Grants a Brief but significant Speed Boost to all Green & Blue Spells, which Scales down in effectiveness relative to the Size of the Spell."
+affectsGreens = true
+affectsReds = false
+affectsBlues = true
+affectsPurples = false
+affectsYellows = false
+affectsBlacks = false
+stackType = 0
+stackRemoval = 0
+stacks = 0
+maxStacks = 1

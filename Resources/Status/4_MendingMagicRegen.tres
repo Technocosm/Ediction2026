@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://cstji4u42iswv"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_3x02x"]
+
+[resource]
+script = ExtResource("1_3x02x")
+id = 4
+name = "Mending"
+t = 0.0
+durationType = 0
+defaultDuration = 5.0
+duration = 5.0
+conditionNum = 1.0
+effect1 = 6
+effect2 = 0
+effect3 = 0
+effectType = 0
+effect1Strength = 5.0
+effect2Strength = 1.0
+effect3Strength = 1.0
+effectDescriptionShort = "Regenerate Health"
+effectDecriptionLong = "Gradually Regenerate Health over time. Stacks will increase the Duration, but won't Heal faster."
+affectsGreens = false
+affectsReds = false
+affectsBlues = false
+affectsPurples = false
+affectsYellows = false
+affectsBlacks = false
+stackType = 1
+stackRemoval = 0
+stacks = 0
+maxStacks = 1

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://df1q744nc0ne8"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_vv7tk"]
+
+[resource]
+script = ExtResource("1_vv7tk")
+id = 3
+name = "Shield Drain"
+t = 0.0
+durationType = 0
+defaultDuration = 8.0
+duration = 8.0
+conditionNum = 1.0
+effect1 = 5
+effect2 = 0
+effect3 = 0
+effectType = 2
+effect1Strength = 0.5
+effect2Strength = 1.0
+effect3Strength = 1.0
+effectDescriptionShort = "Drains your Shield"
+effectDecriptionLong = "Gradually Drains your Shield. The Drain is enough to match the Regen of an average Defense Character holding Shield."
+affectsGreens = false
+affectsReds = false
+affectsBlues = false
+affectsPurples = false
+affectsYellows = false
+affectsBlacks = false
+stackType = 0
+stackRemoval = 0
+stacks = 0
+maxStacks = 1

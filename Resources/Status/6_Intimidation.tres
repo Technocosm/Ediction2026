@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://djx8iei7eny7r"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_ipqo6"]
+
+[resource]
+script = ExtResource("1_ipqo6")
+id = 6
+name = "Intimidated"
+t = 0.0
+durationType = 0
+defaultDuration = 12.0
+duration = 12.0
+conditionNum = 1.0
+effect1 = 8
+effect2 = 9
+effect3 = 0
+effectType = 2
+effect1Strength = 0.5
+effect2Strength = 2.0
+effect3Strength = 1.0
+effectDescriptionShort = "Shield Damage Gives your Opponent Mana"
+effectDecriptionLong = "Your Opponent Gains Mana for every % of Shield Charge you lose to Shield Damage, while worsening the effects of Shield Staggers."
+affectsGreens = false
+affectsReds = false
+affectsBlues = false
+affectsPurples = false
+affectsYellows = false
+affectsBlacks = false
+stackType = 0
+stackRemoval = 0
+stacks = 0
+maxStacks = 1

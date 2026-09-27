@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://bw4whoounuaat"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_8i4wb"]
+
+[resource]
+script = ExtResource("1_8i4wb")
+id = 9
+name = "Projection"
+t = 0.0
+durationType = 1
+defaultDuration = 1.0
+duration = 1.0
+conditionNum = 1.0
+effect1 = 12
+effect2 = 13
+effect3 = 0
+effectType = 0
+effect1Strength = 1.0
+effect2Strength = 0.04
+effect3Strength = 1.0
+effectDescriptionShort = "All Spells are Precise and Grow!"
+effectDecriptionLong = "Every Spell you Cast while this Status is in Effect will be Cast Precisely, however the effect will end if you miss a beat of the metronome. For each tick you hit, the Precise Boost grows a little!"
+affectsGreens = true
+affectsReds = true
+affectsBlues = true
+affectsPurples = true
+affectsYellows = true
+affectsBlacks = true
+stackType = 0
+stackRemoval = 0
+stacks = 0
+maxStacks = 25

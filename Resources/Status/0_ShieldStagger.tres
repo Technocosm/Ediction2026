@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://c8wcc805h8u1m"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_ccps6"]
+
+[resource]
+script = ExtResource("1_ccps6")
+id = 0
+name = "Shield Stagger"
+t = 0.0
+durationType = 0
+defaultDuration = 0.0
+duration = 0.0
+conditionNum = 1.0
+effect1 = 1
+effect2 = 0
+effect3 = 0
+effectType = 2
+effect1Strength = 1.0
+effect2Strength = 1.0
+effect3Strength = 1.0
+effectDescriptionShort = "Slower Shield & Mana Gain"
+effectDecriptionLong = "Taking Excess Shield Damage during a Shield Break caused you to get Staggered! Your Shield and Mana will now Regenerate Slower until you recover. This effect dissipates in strength the closer you are to fully recovering."
+affectsGreens = false
+affectsReds = false
+affectsBlues = false
+affectsPurples = false
+affectsYellows = false
+affectsBlacks = false
+stackType = 0
+stackRemoval = 0
+stacks = 0
+maxStacks = 1

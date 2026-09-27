@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://c3juitld0oh0a"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_8wdjk"]
+
+[resource]
+script = ExtResource("1_8wdjk")
+id = 5
+name = "Embrittled"
+t = 0.0
+durationType = 0
+defaultDuration = 3.0
+duration = 3.0
+conditionNum = 1.0
+effect1 = 7
+effect2 = 0
+effect3 = 0
+effectType = 2
+effect1Strength = 1.0
+effect2Strength = 1.0
+effect3Strength = 1.0
+effectDescriptionShort = "Embrittles Edicts you Cast"
+effectDecriptionLong = "Embrittles all of your Spells on the Track when applied, and continues to apply to any more you Cast before this Status ends. Embrittled Edicts cannot Pierce or Damage Shields. Stacks add to the Duration."
+affectsGreens = true
+affectsReds = true
+affectsBlues = true
+affectsPurples = true
+affectsYellows = true
+affectsBlacks = true
+stackType = 1
+stackRemoval = 0
+stacks = 0
+maxStacks = 1

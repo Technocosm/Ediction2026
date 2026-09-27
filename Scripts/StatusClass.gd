@@ -5,16 +5,18 @@ enum StatusEffect
 {
 	NONE,					# No Status Effect (only use for Placeholder Slots)
 	Shield_Staggered,		# Reduced Shield Regen Speed (From Taking Excess Shield Damage during a Shield Break)
-	Super_Shield,			# Super Shield Buff (Shield Immune to Pierce & gets heavy DMG Resist)
+	Super_Shield,			# Super Shield Buff (Shield Immune to Pierce)
+	Shield_Damage_Resistance,#Also From Super Shield - Shield takes a % less Damage
 	Shield_Damage_Amp,		# From Etching Edict
 	Shield_Drain,			# From Shield Drain Curse
 	Regeneration,			# From Mending Magic - Effect Strength is HP Healed per Second, not in total
-	Embrittling,			# From HELIX's Embrittling Edict - Enemy Spells have no Shield Damage or Pierce
-	Intimidation,			# From HELIX's Intimidation Incantation - Get Mana from Shield Damage
-	Stagger_Boost,			# also from Intimidation Incantion - Shield Staggers last effectStrength times longer
+	Embrittling,			# From HELIX's Embrittling Edict - Your Spells have no Shield Damage or Pierce
+	Intimidation,			# From HELIX's Intimidation Incantation - Damage to your Shield gives the Opponent Mana
+	Stagger_Boost,			# also from Intimidation Incantion - Shield Staggers last longer
 	Force_Conversion,		# From HELIX's Force Conversion - Blocking Enlarges your Spells, up to a limit
 	Pressuriser,			# From HELIX's Pressuriser - Speed Boost relative to Spell Size
-	Projection_Line,		# From HELIX's Projection Line - Metronome
+	Perfection,				# From HELIX's Projection Line - All Spells are Cast Precisely
+	Perfect_Boost,			# From HELIX's Projection Line - Boosts the Effects of Perfect Casts
 	Invincibility,			# From Evolent's Disarming Nature
 	Recovery,				# From Evolent's Hallowed Hollows - Regenerate a % of the Damage you take as =HP over time
 	Pain_Drain,				# From Evolent's Painful Pentacle - Enemy Receives a Flat Heal whenever you take Damage
@@ -65,20 +67,22 @@ enum StackRemoval	# How do Stacks get Removed?
 # Fundamentals:
 @export var id := 0;
 @export var name := "NA";
-@export var t := 0;								# Timer
+@export var t := 0.;								# Timer
 
 # Duration:
 @export var durationType := DurationType.Timed;
-@export var defaultDuration := 0;				# Default Duration when first Applied
-@export var duration := 0;						# Current Remaining Duration
-@export var conditionNum := 1;	# Signifies whether the condition for the Status to end has been met when it hits 0
+@export var defaultDuration := 0.;				# Default Duration when first Applied
+@export var duration := 0.;						# Current Remaining Duration
+@export var conditionNum := 1.;	# Signifies whether the condition for the Status to end has been met when it hits 0
 
 # Effect:
 @export var effect1	:= StatusEffect.NONE;		# Each Status must have at least 1 Effect tied to it...
 @export var effect2	:= StatusEffect.NONE;		# But it could have multiple Effects combined
 @export var effect3	:= StatusEffect.NONE;		# Including conditional bonus Effects!
 @export var effectType := EffectType.Positive;	
-@export var effectStrength := 1;				# Strength Modifier for Effects that can vary in Power
+@export var effect1Strength := 1.;				# Strength Modifier for Effects that can vary in Power
+@export var effect2Strength := 1.;
+@export var effect3Strength := 1.;
 @export var effectDescriptionShort := "NA";		# Short Description of Effect
 @export var effectDecriptionLong := "NA";		# Long & Detailed Description of Effect
 @export var affectsGreens := true;				# Affects Green Spells

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://b0dfbo4c0pd4g"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_vqdu1"]
+
+[resource]
+script = ExtResource("1_vqdu1")
+id = 2
+name = "Etched"
+t = 0.0
+durationType = 0
+defaultDuration = 3.0
+duration = 3.0
+conditionNum = 1.0
+effect1 = 4
+effect2 = 0
+effect3 = 0
+effectType = 2
+effect1Strength = 15.0
+effect2Strength = 1.0
+effect3Strength = 1.0
+effectDescriptionShort = "Shield Damage Amp"
+effectDecriptionLong = "A Stacking Debuff that Amplifies Shield Damage Received - it can Stack up to 5 times, and each Stack will Reset the Duration of all Stacks. When the Duration runs out, only 1 Stack at a time will Expire."
+affectsGreens = false
+affectsReds = false
+affectsBlues = false
+affectsPurples = false
+affectsYellows = false
+affectsBlacks = false
+stackType = 0
+stackRemoval = 1
+stacks = 0
+maxStacks = 5

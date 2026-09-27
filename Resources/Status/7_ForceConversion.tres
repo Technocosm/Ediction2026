@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Status" load_steps=2 format=3 uid="uid://bdlgdarsbr42"]
+
+[ext_resource type="Script" path="res://Scripts/StatusClass.gd" id="1_ojabw"]
+
+[resource]
+script = ExtResource("1_ojabw")
+id = 7
+name = "Force Conversion"
+t = 0.0
+durationType = 0
+defaultDuration = 10.0
+duration = 10.0
+conditionNum = 1.0
+effect1 = 10
+effect2 = 0
+effect3 = 0
+effectType = 0
+effect1Strength = 1.0
+effect2Strength = 1.0
+effect3Strength = 1.0
+effectDescriptionShort = "Blocking Enlarges your Spells"
+effectDecriptionLong = "Blocking Enlarges Spells while this Buff is in effect, up to a Maximum of Double the Size. Doesn't Stack."
+affectsGreens = true
+affectsReds = true
+affectsBlues = true
+affectsPurples = true
+affectsYellows = true
+affectsBlacks = true
+stackType = 3
+stackRemoval = 0
+stacks = 0
+maxStacks = 200
