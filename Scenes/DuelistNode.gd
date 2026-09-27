@@ -17,7 +17,7 @@ var mousePos;
 var lmbHeld = false;		# Is Left Mouse Button Held?
 var mouseOnShield = false;	# Is our Mouse currently over the Shield button?
 
-const MAX_HP = 100.;
+const MAX_HP = 1000.;
 const MAX_SHIELD = 1.;
 
 const MIN_SHIELD_REGEN = 0.4;				# Minimum & Maximum Possible Default Shield Regen Speeds while Shielding
@@ -138,7 +138,7 @@ func _process(delta):
 			outerShieldAlpha = 1.;
 		else:
 			# If below the threshold, fade in from 0 to 100% visibility depending on how close to the threshold it is
-			outerShieldAlpha = shieldCharge / SHIELD_FADE_IN_THRESHOLD;
+			outerShieldAlpha = _curveUp(shieldCharge / SHIELD_FADE_IN_THRESHOLD, 3);
 		Shield.modulate.a = outerShieldAlpha;
 		
 		# Now work on the Inner Shield's Alpha
@@ -189,3 +189,20 @@ func getDefense():
 	return defense[charId];
 func getTrickiness():
 	return trickiness[charId];
+	
+func _curveDown(amnt, cPow = 2):	# amnt should be between 1 and 0. This applies an "exponential curve" downwards.
+	for i in (cPow - 1):			# 0 will still = 0 and 1 will still equal 1, but if you were at the halfway point
+		amnt *= amnt;				# of the curve if you imagine it as a graph, we multiply amnt by itself as many
+	return amnt;					# times as was entered in cPow - turning 0.5 into 0.25 if cPow = 2
+	
+func _curveUp(amnt, cPow = 2):				# CurveUp works the same as down, only we Calculate the result of Down
+	amnt = 1 - _curveDown(1 - amnt, cPow);	# first, since it's easier to figure out. Then we simply invert it, by
+	return amnt;							# starting from 1 and taking the result away from it - 0.5 turns into 0.75
+
+func dealDamage(damage):
+	hp -= damage;
+	print_debug(hp, " HP Remaining");
+
+func dealShieldDamage(damage):
+	damage /= 100;
+	shieldCharge -= damage;

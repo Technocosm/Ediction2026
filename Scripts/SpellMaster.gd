@@ -80,11 +80,34 @@ func _process(delta):
 	for i in MAX_EDICTS:
 		instances[i].update(delta);
 		
-		if(t > 0.2):					# Just a failsafe to ensure nothing collides before it's properly set up
+		if(instances[i].t > 1.5):	# Newly-Spawned Edicts shouldn't have any Collision yet.
 			if(instances[i].active):	# Don't Check Collision of inactive Edicts
 					if(DuelistHurtbox.overlaps_area(instances[i].getHitbox())):	# If an Edict hits the Duelist
-						Duelist.shieldFlash();
-	
+						#Don't Run Collision if we already did it last Frame.
+						if(!instances[i].duelistCollissionLastFrame):
+							instances[i].duelistCollissionLastFrame = true;
+							# Compare Shield & Edict Sizes to see if it should be blocked
+							var shieldSize = Duelist.getShieldSize();
+							var edictSize = (instances[i].getRealSize().x * EDICT_TO_SHIELD_SIZE_CONVERSION_CONSTANT);
+							var sizeDamageBoost = instances[i].getSizeChange()
+							var duelistDamage = EdictStats[instances[i].spellID].damage * sizeDamageBoost;
+							var shieldDamage = EdictStats[instances[i].spellID].shield_damage * sizeDamageBoost;
+							if(shieldSize < edictSize):
+								# get hit
+								Duelist.dealDamage(duelistDamage);
+								Duelist.dealShieldDamage(shieldDamage/2);
+							else:
+								# block
+								Duelist.shieldFlash();
+								Duelist.dealShieldDamage(shieldDamage);
+								
+								var pierce = EdictStats[instances[i].spellID].pierce;
+								if(pierce > 0.):
+									Duelist.dealDamage(duelistDamage * pierce);
+							# Collision Complete, now destory the Edict.
+							instances[i].destroy();
+					else:
+						instances[i].duelistCollissionLastFrame = false;
 
 # Look for an inactive Edict that's free to set up, then give it the ID for the Edict you want it to be.
 func SetupFreeEdict(id, precise):
@@ -95,3 +118,4 @@ func SetupFreeEdict(id, precise):
 			print_debug("Edict Size: ", instances[num].getRealSize().x);
 			num = MAX_EDICTS;
 		num += 1;
+

@@ -10,6 +10,8 @@ var EdictDataResource;
 # GAMEPLAY VARIABLES
 var active = false;
 var t = 0.;			# t = time (basically a clock)
+var spellID = 0;
+var duelistCollissionLastFrame = false;
 
 var speed = 0;
 var size = 0;
@@ -58,6 +60,7 @@ func _setup(id, resource, precise, charStr = 0.5, charSpd = 0.5, spellStr = 1, s
 	
 	# Set Sprite from Spirtesheet using ID
 	EdictSprite.frame = id % EDICT_SPRITESHEET_FRAMES;
+	spellID = id;
 	
 	# Store Edict Resource for later reference:
 	EdictDataResource = resource;
@@ -174,3 +177,12 @@ func getHitbox():
 
 func getRealSize():
 	return EdictPos.scale;
+	
+func getSizeChange():
+	return size / baseSize;
+
+func destroy():
+	size = 0;
+	_setSize();
+	active = false;
+	t = 0;
