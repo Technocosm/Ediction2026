@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://browu2jc6kfvb"]
 
-[ext_resource type="Script" path="res://Scenes/DuelistNode.gd" id="1_jsj8w"]
+[ext_resource type="Script" path="res://Scripts/DuelistNode.gd" id="1_kx1bo"]
 [ext_resource type="Texture2D" uid="uid://c07cknguxrrb1" path="res://Assets/Characters/charspr.png" id="2_lwnc7"]
 [ext_resource type="Texture2D" uid="uid://djdu8qhwrvwxm" path="res://Assets/Characters/Shield/Shield Outline.png" id="3_jl1v2"]
 [ext_resource type="Texture2D" uid="uid://c6wpxixnh2vni" path="res://Assets/Characters/Shield/Shield Inside.png" id="4_gkcno"]
@@ -11,7 +11,7 @@
 
 [node name="DuelistNode" type="Node2D"]
 position = Vector2(0, 255)
-script = ExtResource("1_jsj8w")
+script = ExtResource("1_kx1bo")
 
 [node name="DuelistSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
