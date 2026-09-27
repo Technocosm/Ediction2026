@@ -50,6 +50,12 @@ var timeElapsedSinceLastFlash = SHIELD_FLASH_FADE_TIME;		# How long ago was that
 # These initial values are set up this way just to be extra careful we don't get any unwanted flashes on spawn
 # They should be overwritten by the time they would do anything anyway.
 
+var rng = RandomNumberGenerator.new();
+# DmgShake Shakes the DuelistSprite for a while when Damaged
+var dmgShake = 0;
+const MAX_DMG_SHAKE = 10;
+const DMG_SHAKE_DISSIPATE_RATE = 4;
+
 var charId = 0;
 
 var strength : Array = [60, 20, 40, 100];
@@ -83,6 +89,16 @@ func _process(delta):
 		# Count Time
 		t += delta;
 		timeElapsedSinceLastFlash += delta;
+		
+		DuelistSprite.position = Vector2(rng.randf_range(-dmgShake, dmgShake), rng.randf_range(-dmgShake, dmgShake));
+		
+		# Dissipate Shaking from Damage Taken
+		if(dmgShake > 0):
+			dmgShake -= (DMG_SHAKE_DISSIPATE_RATE * delta);
+			if(dmgShake <= 0):
+				# reset position after shaking ends
+				DuelistSprite.position = Vector2(0,0);
+				dmgShake = 0;
 		
 		# DEBUG - REMOVE LATER
 		# if(Input.is_key_pressed(KEY_SPACE)):
@@ -201,6 +217,7 @@ func _curveUp(amnt, cPow = 2):				# CurveUp works the same as down, only we Calc
 
 func dealDamage(damage):
 	hp -= damage;
+	dmgShake += (damage / 5);
 	print_debug(hp, " HP Remaining");
 
 func dealShieldDamage(damage):
