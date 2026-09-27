@@ -53,8 +53,9 @@ var timeElapsedSinceLastFlash = SHIELD_FLASH_FADE_TIME;		# How long ago was that
 var rng = RandomNumberGenerator.new();
 # DmgShake Shakes the DuelistSprite for a while when Damaged
 var dmgShake = 0;
-const MAX_DMG_SHAKE = 10;
-const DMG_SHAKE_DISSIPATE_RATE = 4;
+const MAX_DMG_SHAKE = 25;
+const DMG_SHAKE_DISSIPATE_RATE = 5;
+const DISSIPATION_BOOST_WHEN_CLOSE_TO_MAX = 5;
 
 var charId = 0;
 
@@ -94,7 +95,12 @@ func _process(delta):
 		
 		# Dissipate Shaking from Damage Taken
 		if(dmgShake > 0):
-			dmgShake -= (DMG_SHAKE_DISSIPATE_RATE * delta);
+			var shakeDissipation = (DMG_SHAKE_DISSIPATE_RATE * delta);
+			var percentageProgress = dmgShake / MAX_DMG_SHAKE;
+			# Boost Dissipation Rate when closer to max shake for smoother "curve"
+			shakeDissipation *= (1. + (percentageProgress * DISSIPATION_BOOST_WHEN_CLOSE_TO_MAX));
+			dmgShake -= shakeDissipation;
+			
 			if(dmgShake <= 0):
 				# reset position after shaking ends
 				DuelistSprite.position = Vector2(0,0);
@@ -217,7 +223,7 @@ func _curveUp(amnt, cPow = 2):				# CurveUp works the same as down, only we Calc
 
 func dealDamage(damage):
 	hp -= damage;
-	dmgShake += (damage / 5);
+	dmgShake += (damage / 2);
 	print_debug(hp, " HP Remaining");
 
 func dealShieldDamage(damage):
