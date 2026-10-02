@@ -8,6 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnn0b"]
 shader = ExtResource("2_6tbym")
 shader_parameter/manaPercentage = 1.0
+shader_parameter/targetResolution = Vector2(300, 300)
 shader_parameter/manaColourR = 0.0
 shader_parameter/manaColourG = 1.0
 shader_parameter/manaColourB = 1.0
@@ -26,6 +27,7 @@ shader_parameter/noise = ExtResource("3_j8lgb")
 texture = ExtResource("1_mk88f")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+z_index = 10
 material = SubResource("ShaderMaterial_nnn0b")
 scale = Vector2(4.36, 4.36)
 texture = ExtResource("3_i4vua")

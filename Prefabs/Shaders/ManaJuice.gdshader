@@ -4,6 +4,7 @@ uniform float manaPercentage : hint_range(0.0, 1.0, 0.01);
 
 uniform sampler2D screenTexture : hint_screen_texture;
 uniform sampler2D noise : repeat_enable;
+uniform vec2 targetResolution;
 
 uniform float manaColourR : hint_range(0.0, 1.0, 0.01);
 uniform float manaColourG : hint_range(0.0, 1.0, 0.01);
@@ -19,6 +20,9 @@ uniform float waveStrength = 0.01;
 
 void fragment()
 {
+	//Round UV down to bitcrush the effect
+	vec2 newUV = floor(UV * targetResolution) / targetResolution;
+	
 	//For some reason 0.5 seems to be a little to the top-left & this is the centre?
 	vec2 centre = vec2(0.515, 0.515);
 	float distanceFromCentre = length(UV - centre);
@@ -47,6 +51,7 @@ void fragment()
 			//We can get the 2D image of the screen as a texture, and manipulate where to render each pixel
 			//Based on the sloshing to give the effect of warbly reflections.
 			vec2 waveUV = SCREEN_UV + vec2(waveX, waveY);
+			waveUV = floor(waveUV * targetResolution) / targetResolution;
 			vec4 screenColour = texture(screenTexture, waveUV);
 	
 			float transparency = 1.f;
@@ -63,13 +68,15 @@ void fragment()
 			combinedColour.z = combinedColour.z + ((1.f - combinedColour.z) * manaBrightness);
 			
 			//Find size of Mana Line in UV Values
-			float maxMLS = 0.1125f;
+			float maxMLS = 0.2f;
 			float mLS = manaLineSize * maxMLS;
 			//Don't bother running the code to brighten when close to the Mana Line if not close
 			if(distanceFromManaLine < mLS)
 			{
 				//Scale Brightness based on proximity
 				float manaLineBrightnessBoost = (mLS - distanceFromManaLine) / mLS;
+				//Creates a sort of "ease in curve" effect witht the brightness
+				manaLineBrightnessBoost *= (manaLineBrightnessBoost * manaLineBrightnessBoost);
 				
 				combinedColour.x = combinedColour.x + ((1.f - combinedColour.x) * manaLineBrightnessBoost);
 				combinedColour.y = combinedColour.y + ((1.f - combinedColour.y) * manaLineBrightnessBoost);
@@ -79,8 +86,10 @@ void fragment()
 			//Not sure why, but the values are all off if we don't mess with the numbers a little here.
 			float sloshSpeed = waveSpeed / 18.f;
 			float sloshSize = 0.75f;
+			vec2 sloshTargetRes = targetResolution / 5.f;
 			//Use a noise texture to add Slosh Brightness
 			vec2 samplePoint = vec2(sin((UV.x / sloshSize) + (t * sloshSpeed)), cos((UV.y / sloshSize) + ((t / 2.5) * sloshSpeed)));
+			samplePoint = floor(samplePoint * sloshTargetRes) / sloshTargetRes;
 			float brightLevelModifier = texture(noise, samplePoint).z;
 			
 			//Apply Brightening
