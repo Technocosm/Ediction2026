@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmp0ao7vfv3j"]
+
+[ext_resource type="Texture2D" uid="uid://bn8pq8tpc0rhn" path="res://Assets/UI/The Circle.png" id="1_mk88f"]
+[ext_resource type="Shader" path="res://Prefabs/Shaders/ManaJuice.gdshader" id="2_6tbym"]
+[ext_resource type="Texture2D" uid="uid://byyqdnenrwevf" path="res://icon.svg" id="3_i4vua"]
+[ext_resource type="Texture2D" uid="uid://860vtqbs2vxq" path="res://Prefabs/Noise/ViscousNoiseWrap_8.3.1.png" id="3_j8lgb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnn0b"]
+shader = ExtResource("2_6tbym")
+shader_parameter/manaPercentage = 1.0
+shader_parameter/manaColourR = 0.0
+shader_parameter/manaColourG = 1.0
+shader_parameter/manaColourB = 1.0
+shader_parameter/manaColourA = 1.0
+shader_parameter/manaBrightness = 0.52
+shader_parameter/sloshBrightness = 0.59
+shader_parameter/manaLineSize = 0.5
+shader_parameter/waveFrequency = 8.0
+shader_parameter/waveSpeed = 2.0
+shader_parameter/waveStrength = 0.012
+shader_parameter/noise = ExtResource("3_j8lgb")
+
+[node name="SpellCircle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mk88f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+material = SubResource("ShaderMaterial_nnn0b")
+scale = Vector2(4.36, 4.36)
+texture = ExtResource("3_i4vua")
+region_enabled = true
+region_rect = Rect2(0, 0, 132, 132)
+
+[node name="THEWARBLETESTER" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(66, 152)
+scale = Vector2(4.14063, 3.60156)
+texture = ExtResource("3_i4vua")
